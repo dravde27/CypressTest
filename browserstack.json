@@ -1,0 +1,29 @@
+{
+    "auth": {
+      "username": "eduardkvasenko_MzTPwC",
+      "access_key": "VcQVWbP1tLSLR93FkKy3"
+    },
+    "browsers": [{
+        "browser": "chrome",
+        "os": "Windows 10",
+        "versions": ["latest", "latest - 1"]
+      }
+    ],
+    "run_settings": {
+      "cypress_config_file": "./cypress.config.js",
+          "parallels": "2",
+        "spec_timeout": 35,
+        "video":"true",
+        "downloads": [
+            "./results",
+            "./results"
+        ],
+      "cypress_version": "12.3",
+      "project_name": "Cypress Kitchen Sink Example",
+      "npm_dependencies": {
+        "cypress": "12",
+        "cypress-drag-drop": "^1.1.1"
+      },
+      "build_name": "Build no: 1"
+    }
+  }
