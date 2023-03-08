@@ -5,4 +5,4 @@ workflows:
   test:
     jobs:
       - cypress/run:
-          start-command: 'npm run testyyyeryeyr'
+          cypress-command: 'npx cypress run --browser firefox'
