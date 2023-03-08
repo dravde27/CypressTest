@@ -2,7 +2,7 @@
   "name": "cypress",
   "version": "1.0.0",
   "scripts": {
-    "test": "node_modules\\.bin\\cypress run",
+    "test1": "npx cypress run",
     "browserstack": "browserstack-cypress run"
   },
   "devDependencies": {

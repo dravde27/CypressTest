@@ -5,4 +5,4 @@ workflows:
   test:
     jobs:
       - cypress/run:
-          start-command: 'npm run test'
+          start-command: 'npm run test1'
