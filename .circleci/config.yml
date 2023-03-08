@@ -4,5 +4,8 @@ orbs:
 workflows:
   test:
     jobs:
+      steps:
+      - browser-tools/install-browser-tools:
+          firefox-version: 80.0.1
       - cypress/run:
           cypress-command: 'npx cypress run --browser firefox'
