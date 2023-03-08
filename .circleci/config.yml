@@ -5,4 +5,4 @@ workflows:
   test:
     jobs:
       - cypress/run:
-          cypress-command: 'npx cypress run --component'
+          cypress-command: npm run test
