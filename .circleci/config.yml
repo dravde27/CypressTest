@@ -2,7 +2,9 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@3
 workflows:
-            steps:
-            - run:
-                name: Lolka1
-                command: npm run test
+  test:
+    jobs:
+      - cypress/run:
+          install-browsers: true
+          start-command: 'npm run test'
+        
