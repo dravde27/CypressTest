@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:partner.soap.sforce.com">  
+     <soapenv:Body>  
+        <urn:login>  
+            <urn:username>autoqa@gaf.energy.stg</urn:username>  
+            <urn:password>Test12345*GaaGHNyUSgcUYMgzcpH5pHgM2</urn:password>  
+         </urn:login>  
+     </soapenv:Body>  
+</soapenv:Envelope> 

@@ -1,3 +1,4 @@
+
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@3
@@ -6,5 +7,4 @@ workflows:
     jobs:
       - cypress/run:
           install-browsers: true
-          cypress-command: 'npx cypress run --browser firefox'
-          parallelism: 4
+          command: npm run test1

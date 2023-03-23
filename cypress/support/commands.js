@@ -1,30 +1,3 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-
 Cypress.Commands.add('dragAndDrop', (subject, target) => {
     Cypress.log({
         name: 'DRAGNDROP',
@@ -70,3 +43,28 @@ Cypress.Commands.add('dragAndDrop', (subject, target) => {
                 });
         });
 });
+
+
+Cypress.Commands.add("loginSalesforce", () => {
+
+    let soapFile = "cypress/support/soapSalesforceStaging.xml"
+    cy.log(soapFile)
+    cy.readFile(soapFile).then(
+      (requestBody) => {
+        cy.request({
+          method: "POST",
+          url: "https://gafenergy--stg.sandbox.my.salesforce.com/services/Soap/u/56.0",
+          headers: {
+            SOAPAction: "abc",
+            ["Content-Type"]: "text/xml"
+          },
+          body: requestBody
+        }).then((response) => {
+          const sessionID = Cypress.$(response.body).find("sessionId").text();
+          cy.log(sessionID)
+          cy.visit("https://gafenergy--stg.sandbox.my.salesforce.com/secur/frontdoor.jsp?sid=" + sessionID + "&allp=1&cshc=D000002cQwAD0000008aJb&display=page");
+          cy.wait(7000)
+        })
+      });
+  }
+  );
