@@ -1,27 +1,15 @@
 version: 2.1
 
-parameters:
-  spec:
-    type: string
-    default: ""
-  category:
-    type: string
-    default: ""
-  env:
-    type: string
-    default: ""
-
 jobs:
   run1:
     docker:
       - image: cypress/base:16.14.2-slim
     steps:
       - checkout
-      - run: node --version
       - run: 
-          name: Install dependencies
-          command: npm install
-
+          command: npm install cypress --save-dev
+      - run: 
+          command: npx cypress run
 workflows:
   build_and_test:
     jobs:
