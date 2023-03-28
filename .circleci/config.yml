@@ -1,20 +1,28 @@
 version: 2.1
 
-jobs:
-  build:
-    docker:
-      - image: cimg/base:2023.03
-    steps:
-      - run: echo "this is the build job"
-  test:
-    docker:
-      - image: cimggg/base:2023.03
-    steps:
-      - run: echo "this is the test job"
+parameters:
+  spec:
+    type: string
+    default: ""
+  category:
+    type: string
+    default: ""
+  env:
+    type: string
+    default: ""
 
-# Orchestrate our job run sequence
+jobs:
+  run1:
+    docker:
+      - image: cypress/base:16.14.2-slim
+    steps:
+      - checkout
+      - run: node --version
+      - run: 
+          name: Install dependencies
+          command: npm install
+
 workflows:
   build_and_test:
     jobs:
-      - build
-      - test
+      - run1
