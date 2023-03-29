@@ -7,6 +7,7 @@ describe('rozetka test', () => {
     cy.visit('https://rozetka.com.ua/ua/notebooks/c80004/')
     ///edward
     //edward2
+    ed34444kek
   //       let aq =  cy.get("body > app-root > div > div > rz-category > div > main > rz-catalog > div > div > aside > rz-filter-stack > div:nth-child(2) > div > rz-scrollbar > div > div.scrollbar__inner > div > div > rz-filter-section-autocomplete > ul > li")
   // for (let index = 0; index < q.length; index++) {
   //   const element = array[index];
