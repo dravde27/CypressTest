@@ -5,25 +5,82 @@ Cypress.on('uncaught:exception',(err, runnable)=>{
 describe('example to-do app', () => {
 
   it('testik', () => {
-    cy.loginSalesforce()
-    cy.xpath('//div[@role="navigation"]/button').click()
-    cy.xpath('//input[@placeholder="Search apps and items..."]').type('Leads')
-    cy.xpath('//a[@id="Lead"]').click()
-    cy.wait(2000)
-    cy.xpath('(//a[@title="New"])[1]').click()
-    cy.xpath('//span[contains(text(),"Inbound Consumer")]').click()
-    cy.xpath('//span[contains(text(),"Next")]').click()
-    cy.xpath('//input[@name="firstName"]').type('EDWARD')
-    cy.xpath('//input[@name="lastName"]').type('EDWARD2')
-    cy.xpath('//input[@name="Email"]').type('ed@mail.com')
-    cy.xpath('//input[@name="Phone"]').type('1234567890')
-    cy.xpath('//input[@name="Appointment_Date__c"]').type('3/8/2023')
+  //   let authorization1 = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDM1NTAwMDAxTVhLdGhBQUgiLCJjb21wYW55SWQiOiIwMDE1NTAwMDAxWFM3dXpBQUQiLCJjb21wYW55TmFtZSI6IklkZWFsIFJvb2ZpbmcgTExDIiwicm9sZSI6IkFkbWluIiwiYXV0aG9yaXplZFRvU2VsbCI6IlRydWUiLCJlbWFpbCI6Imxla2ljZXI1OTdAb2N0b3ZpZS5jb20iLCJhc3Npc3RlZEJ5QWRtaW4iOiJGYWxzZSIsImV4cCI6MTY4MjQ5Nzg3MSwiaXNzIjoiZ2FmZS1wb3J0YWwtY2VydC0xIiwiYXVkIjoiZ2FmZS1wb3J0YWwtY2VydC0xIn0._vazNhB9gYP04WbksTcD-p5MtDRjsNIXpOVFfzx9Q6Q'
+  //  cy.readFile('cypress/support/porsche.jpg')
+  //  .then((file) => Cypress.Blob.binaryStringToBlob(file))
+  //  .then((blob) => {
+  //   var formdata = new FormData();
+  //   formdata.append("file", blob, "xml.xml");
+  //   cy.request({
+  //     method: 'POST',
+  //     url: `https://wacertorder.gaf.energy/api/buckets/upload-file`,
+  //     headers: {
+  //       authorization:authorization1,
+  //       'content-type': 'multipart/form-data'
+  //     },
+  //    // failOnStatusCode: false,
+  //     form: true,
+  //     body: {
+  //       BucketId: 'a0T5500000LE3U7EAL',
+  //       FileName: 'FileName1111',
+  //       DocumentType: '1',
+  //       FileContent: file
+  //     }
+  //   })
+  // })})})
+
+  cy.visit('https://certorder.gaf.energy/?x-recaptcha-id=4f08b4d1-3472-47c2-9af5-93ff42cce179')
+   
+  localStorage.setItem('gaf-pp-storage', '{"userCompanyId":"0015500001XS7uzAAD","portalAccessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDM1NTAwMDAxTVhLdGhBQUgiLCJjb21wYW55SWQiOiIwMDE1NTAwMDAxWFM3dXpBQUQiLCJjb21wYW55TmFtZSI6IklkZWFsIFJvb2ZpbmcgTExDIiwicm9sZSI6IkFkbWluIiwiYXV0aG9yaXplZFRvU2VsbCI6IlRydWUiLCJlbWFpbCI6Imxla2ljZXI1OTdAb2N0b3ZpZS5jb20iLCJhc3Npc3RlZEJ5QWRtaW4iOiJGYWxzZSIsImV4cCI6MTY4MjUwNTY4NiwiaXNzIjoiZ2FmZS1wb3J0YWwtY2VydC0xIiwiYXVkIjoiZ2FmZS1wb3J0YWwtY2VydC0xIn0.EAuGH0Cizn5jqXiJ4Cu8dgXClXZzNU_uJRVtiL3L35k"}');
+  //   cy.get('#main_content_container > div > main > button').click()
+  //   cy.get('[data-testid="input-login"]').type('lekicer597@octovie.com')
+  //   cy.get('[data-testid="input-password"]').type('Test12345*')
+  //   cy.get('[data-testid="login-btn"]').click()    
+    cy.wait(3000)
+    cy.reload
+    cy.get('[data-testid="img-logo"]').click()
+   
+    // cy.intercept('/api/**').as('waitForAPItoRespond')
+    // cy.wait('@waitForAPItoRespond').then(el=> console.log(el))
+
+    // cy.intercept('GET', 'https://wacertorder.gaf.energy/api/auth/userinfo', {
+    //   headers: {
+    //           authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDM1NTAwMDAxTVhLdGhBQUgiLCJjb21wYW55SWQiOiIwMDE1NTAwMDAxWFM3dXpBQUQiLCJjb21wYW55TmFtZSI6IklkZWFsIFJvb2ZpbmcgTExDIiwicm9sZSI6IkFkbWluIiwiYXV0aG9yaXplZFRvU2VsbCI6IlRydWUiLCJlbWFpbCI6Imxla2ljZXI1OTdAb2N0b3ZpZS5jb20iLCJhc3Npc3RlZEJ5QWRtaW4iOiJGYWxzZSIsImV4cCI6MTY4MjUwNTY4NiwiaXNzIjoiZ2FmZS1wb3J0YWwtY2VydC0xIiwiYXVkIjoiZ2FmZS1wb3J0YWwtY2VydC0xIn0.EAuGH0Cizn5jqXiJ4Cu8dgXClXZzNU_uJRVtiL3L35k',
+    //     //       'content-type': 'multipart/form-data'
+    //          },
+    // }).as('waitForAPItoRespond')
+    // cy.wait('@waitForAPItoRespond').then(el=> console.log(el))
+
+
+
+
+
+
+    cy.intercept(
+      {
+        url: 'https://wacertorder.gaf.energy/api/auth/userinfo',
+
+        headers: {
+          authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDM1NTAwMDAxTVhLdGhBQUgiLCJjb21wYW55SWQiOiIwMDE1NTAwMDAxWFM3dXpBQUQiLCJjb21wYW55TmFtZSI6IklkZWFsIFJvb2ZpbmcgTExDIiwicm9sZSI6IkFkbWluIiwiYXV0aG9yaXplZFRvU2VsbCI6IlRydWUiLCJlbWFpbCI6Imxla2ljZXI1OTdAb2N0b3ZpZS5jb20iLCJhc3Npc3RlZEJ5QWRtaW4iOiJGYWxzZSIsImV4cCI6MTY4MjUwNTY4NiwiaXNzIjoiZ2FmZS1wb3J0YWwtY2VydC0xIiwiYXVkIjoiZ2FmZS1wb3J0YWwtY2VydC0xIn0.EAuGH0Cizn5jqXiJ4Cu8dgXClXZzNU_uJRVtiL3L35k',
+        },
     
+      }).as('waitForAPItoRespond').then(el=> console.log(el))
 
-  })
 
 
-})
+      
+      
+
+    // cy.wait(3000)
+ // cy.intercept("POST", "https://o4504750641053696.ingest.sentry.io/api/4504751989719040/envelope/?sentry_key=0446e556df1e46a9a6f0106e83e07d22&sentry_version=7&sentry_client=sentry.javascript.react%2F7.47.0")
+    // headers: {
+    //     authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMDM1NTAwMDAxTVhLdGhBQUgiLCJjb21wYW55SWQiOiIwMDE1NTAwMDAxWFM3dXpBQUQiLCJjb21wYW55TmFtZSI6IklkZWFsIFJvb2ZpbmcgTExDIiwicm9sZSI6IkFkbWluIiwiYXV0aG9yaXplZFRvU2VsbCI6IlRydWUiLCJlbWFpbCI6Imxla2ljZXI1OTdAb2N0b3ZpZS5jb20iLCJhc3Npc3RlZEJ5QWRtaW4iOiJGYWxzZSIsImV4cCI6MTY4MjUwNTY4NiwiaXNzIjoiZ2FmZS1wb3J0YWwtY2VydC0xIiwiYXVkIjoiZ2FmZS1wb3J0YWwtY2VydC0xIn0.EAuGH0Cizn5jqXiJ4Cu8dgXClXZzNU_uJRVtiL3L35k',
+    //   }
+//  .as('waitForAPItoRespond')
+
+
+})})
+
 
   
   

@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "browserstack-cypress-cli": "^1.20.0",
-    "cypress": "^12.7.0",
+    "cypress": "^12.10.0",
     "cypress-xpath": "^2.0.1"
   },
   "dependencies": {
