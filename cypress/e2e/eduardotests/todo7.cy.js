@@ -6,8 +6,7 @@ describe('example to-do app', () => {
 
   it('testik', () => {
      
-     cy.readFile('cypress/support/porsche.jpg')
-     .then(file => {
+     then(file => {
       cy.request({
         method: 'POST',
         url: `https://wacertorder.gaf.energy/api/buckets/upload-file`,

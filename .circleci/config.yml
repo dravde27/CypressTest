@@ -10,7 +10,6 @@ jobs:
           command: npm install cypress --save-dev
       - run: 
           command: npm run test1
-      - run: apk add --update openssh-client git
 workflows:
   build_and_test:
     jobs:

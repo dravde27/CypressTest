@@ -5,7 +5,7 @@ Cypress.on('uncaught:exception',(err, runnable)=>{
 describe('example to-do app', () => {
 
   it('testik', () => {
- 
+  
   //  cy.readFile('cypress/support/porsche.jpg')
   //  .then((file) => Cypress.Blob.binaryStringToBlob(file))
   //  .then((blob) => {
@@ -45,7 +45,7 @@ describe('example to-do app', () => {
 
     // cy.intercept('GET', 'https://wacertorder.gaf.energy/api/auth/userinfo', {
     //   headers: {
-    
+   
     //     //       'content-type': 'multipart/form-data'
     //          },
     // }).as('waitForAPItoRespond')
