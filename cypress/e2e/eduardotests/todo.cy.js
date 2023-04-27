@@ -31,6 +31,7 @@ describe('rozetka test', () => {
 //  //   cy.log(res)
 // })
 //sss
+//sss244
 //  cy.log(res[0])
 //  cy.log(res[1])
 //  cy.log(res.length)
