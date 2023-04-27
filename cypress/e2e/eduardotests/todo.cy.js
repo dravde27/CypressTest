@@ -30,6 +30,7 @@ describe('rozetka test', () => {
 //     res.push($elem.text().trim())
 //  //   cy.log(res)
 // })
+//sss
 //  cy.log(res[0])
 //  cy.log(res[1])
 //  cy.log(res.length)
