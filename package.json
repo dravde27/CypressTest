@@ -2,11 +2,9 @@
   "name": "cypress",
   "version": "1.0.0",
   "scripts": {
-    "test1": "npx cypress run",
     "browserstack": "browserstack-cypress run"
   },
   "devDependencies": {
-    "browserstack-cypress-cli": "^1.20.0",
     "cypress": "^12.11.0",
     "cypress-xpath": "^2.0.1"
   },
