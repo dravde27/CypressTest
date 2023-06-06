@@ -6,7 +6,7 @@ jobs:
       - image: cypress/base:16.14.2-slim
     steps:
       - checkout
-      - run: apk add --update openssh-client git
+      - run: apt-get update && apt-get install -y openssh-client git
       - run: 
           command: npm install cypress --save-dev
       - run: 
