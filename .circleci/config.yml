@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  github-super-linter: circleci/github-super-linter@1.0.1
 
 jobs:
   run1:
@@ -6,6 +8,8 @@ jobs:
       - image: cypress/base:16.14.2-slim
     steps:
       - checkout
+      - run: 
+          command: github-super-linter/lint
       - run: 
           command: npm install cypress --save-dev
       - run: 
