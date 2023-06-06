@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  github-super-linter: circleci/github-super-linter@1.0.1
 
 jobs:
   run1:
@@ -9,12 +7,23 @@ jobs:
     steps:
       - checkout
       - run: 
-          command: github-super-linter/lint
-      - run: 
           command: npm install cypress --save-dev
       - run: 
           command: npm run test1
+
+  lint:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Lint code
+          command: npm run lint
 workflows:
   build_and_test:
     jobs:
+      - lint
       - run1
